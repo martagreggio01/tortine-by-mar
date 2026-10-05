@@ -1,7 +1,11 @@
 {
   "instagram": "tortinebymar",
   "whatsapp": "3393489460",
-  "photos": [],
+  "photos": [
+    {
+      "image": "/uploads/torta1.jpeg"
+    }
+  ],
   "recipes": [
     {
       "title": "Crostata moderna ai lamponi e cioccolato",

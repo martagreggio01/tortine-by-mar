@@ -2,6 +2,7 @@ backend:
   name: github
   repo: martagreggio01/tortine-by-mar   #
   branch: main
+  auth_scope: repo
 
 locale: it
 media_folder: uploads

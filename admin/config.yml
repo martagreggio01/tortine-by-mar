@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: TUOUTENTE/tortine-by-mar   # <-- cambia con il tuo nome utente GitHub
+  repo: martagreggio01/tortine-by-mar   #
   branch: main
 
 locale: it

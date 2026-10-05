@@ -1,0 +1,52 @@
+backend:
+  name: github
+  repo: TUOUTENTE/tortine-by-mar   # <-- cambia con il tuo nome utente GitHub
+  branch: main
+
+locale: it
+media_folder: uploads
+public_folder: /uploads
+
+collections:
+  - name: sito
+    label: Contenuti del sito
+    files:
+      - name: site
+        label: Torte, ricette e contatti
+        file: content/site.json
+        fields:
+          - label: "Instagram (senza @)"
+            name: instagram
+            widget: string
+          - label: "Numero WhatsApp (prefisso + numero, es. 393331234567)"
+            name: whatsapp
+            widget: string
+            required: false
+          - label: "Foto del carosello"
+            name: photos
+            widget: list
+            required: false
+            summary: "{{fields.caption}}"
+            fields:
+              - label: Foto
+                name: image
+                widget: image
+              - label: "Didascalia"
+                name: caption
+                widget: string
+                required: false
+          - label: Ricette
+            name: recipes
+            widget: list
+            required: false
+            summary: "{{fields.title}}"
+            fields:
+              - label: Titolo
+                name: title
+                widget: string
+              - label: "Ingredienti (uno per riga)"
+                name: ingredients
+                widget: text
+              - label: "Procedimento (un passaggio per riga)"
+                name: steps
+                widget: text

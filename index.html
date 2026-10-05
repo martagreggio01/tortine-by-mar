@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tortine by Mar</title>
+<meta name="description" content="Torte fatte a mano, su ordinazione. Tortine by Mar.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🍰%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;1,9..144,300&family=DM+Mono&family=Figtree:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f3efe9;--ink:#1c1418;--mute:#75696d;--rose:#c8294f;--line:#d9d2ca;--card:#fbf9f6;--pist:#cfdcbf;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#161012;--ink:#f1ebe6;--mute:#a1949a;--rose:#ff6b8b;--line:#34292d;--card:#201719;--pist:#2c3629}}
+:root[data-theme="dark"]{--bg:#161012;--ink:#f1ebe6;--mute:#a1949a;--rose:#ff6b8b;--line:#34292d;--card:#201719;--pist:#2c3629}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.6 Figtree,system-ui,sans-serif;overflow-x:hidden}
+a{color:inherit}
+.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+.mono,.top,.ctl,.lab,figcaption,footer{font:400 12px/1.4 'DM Mono',ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase}
+.mast{margin:22px 0 0;display:flex;align-items:flex-end;flex-wrap:wrap;gap:0 .06em;font:300 clamp(56px,17.5vw,210px)/.82 Fraunces,Georgia,serif;letter-spacing:-.045em;font-variation-settings:'opsz' 144}
+.mast em{font:italic 300 clamp(22px,4.6vw,56px)/1 Fraunces,Georgia,serif;letter-spacing:-.01em;color:var(--rose);padding-bottom:.35em}
+.track{position:relative;display:flex;align-items:flex-start;gap:clamp(16px,3vw,40px);overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-left:20px;scrollbar-width:none;margin:56px -20px 0;padding:0 20px 64px}
+.track::-webkit-scrollbar{display:none}
+.slide{flex:0 0 clamp(250px,70vw,440px);scroll-snap-align:start;margin:0}
+.slide:nth-child(even){flex-basis:clamp(200px,52vw,340px);margin-top:64px}
+.slide:nth-child(3n){margin-top:28px}
+.im{aspect-ratio:1/1;overflow:hidden;background:var(--pist);display:grid;place-items:center}
+.im img{width:100%;height:100%;object-fit:cover;display:block}
+.im svg{width:48%}
+figcaption{display:flex;gap:12px;margin-top:10px}
+figcaption b{color:var(--rose);font-weight:400}
+.ctl{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--ink);padding-top:10px}
+.arr{background:none;border:0;color:inherit;font:inherit;font-size:18px;cursor:pointer;padding:4px 10px}
+.arr:hover{color:var(--rose)}
+.ed{display:grid;gap:14px;margin:96px 0 0}
+@media(min-width:800px){.ed{grid-template-columns:200px 1fr}}
+.lab{color:var(--rose);padding-top:.8em}
+.ed p{margin:0;font:300 clamp(28px,5.2vw,64px)/1.08 Fraunces,Georgia,serif;letter-spacing:-.02em}
+.ed em{color:var(--rose)}
+.sec{margin:104px 0 8px;font:300 clamp(40px,8vw,96px)/1 Fraunces,Georgia,serif;letter-spacing:-.035em;padding-bottom:12px;border-bottom:1px solid var(--ink)}
+.recs{counter-reset:r}
+.rec{counter-increment:r;border-bottom:1px solid var(--line)}
+.rec summary{display:grid;grid-template-columns:64px 1fr 20px;align-items:baseline;padding:22px 0;cursor:pointer;list-style:none;font:300 clamp(24px,4vw,44px)/1.1 Fraunces,Georgia,serif;letter-spacing:-.02em}
+.rec summary::-webkit-details-marker{display:none}
+.rec summary::before{content:'N°' counter(r,decimal-leading-zero);font:12px 'DM Mono',monospace;letter-spacing:.08em;color:var(--rose)}
+.rec summary::after{content:'+';font:18px 'DM Mono',monospace;color:var(--rose)}
+.rec[open] summary::after{content:'–'}
+.rec .b{display:grid;gap:22px;padding:0 0 28px}
+@media(min-width:700px){.rec .b{grid-template-columns:1fr 2fr;padding-left:64px}}
+.rec h4{margin:0 0 8px;font:400 12px 'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.rec ul{list-style:none;padding:0;margin:0}
+.rec ul li{border-bottom:1px solid var(--line);padding:6px 0}
+.rec ol{margin:0;padding-left:22px}.rec ol li{margin-bottom:8px}
+.rec ol li::marker{color:var(--rose);font-family:'DM Mono',monospace}
+.cta{display:block;margin:120px 0 0;padding-top:20px;border-top:1px solid var(--ink);text-decoration:none;font:300 clamp(36px,9vw,120px)/.95 Fraunces,Georgia,serif;letter-spacing:-.04em}
+.cta span{color:var(--rose);font-style:italic}.cta:hover{color:var(--rose)}
+footer{display:flex;justify-content:space-between;color:var(--mute);margin:48px 0 40px}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;display:flex;justify-content:space-between;align-items:center;gap:12px;margin:0 -20px;padding:4px 20px;background:var(--bg);border-bottom:1px solid var(--ink)}
+.top a{text-decoration:none;min-height:44px;display:flex;align-items:center}.top a:hover{color:var(--rose)}
+.burger{display:flex;align-items:center;gap:10px;background:none;border:0;color:inherit;font:inherit;letter-spacing:inherit;text-transform:inherit;cursor:pointer;min-height:44px;padding:0}
+.burger i{display:block;width:22px;height:8px;border-top:1.5px solid currentColor;border-bottom:1.5px solid currentColor}
+.hs{display:none}@media(min-width:760px){.hs{display:inline}}
+.scrim{position:fixed;inset:0;z-index:25;background:rgba(0,0,0,.45);opacity:0;pointer-events:none;transition:opacity .25s}
+.drawer{position:fixed;top:0;left:0;bottom:0;z-index:30;width:min(88vw,380px);display:flex;flex-direction:column;overflow:auto;padding:calc(12px + env(safe-area-inset-top,0px)) 24px calc(24px + env(safe-area-inset-bottom,0px));background:var(--bg);border-right:1px solid var(--ink);transform:translateX(-100%);visibility:hidden;transition:transform .3s,visibility 0s .3s}
+#shell.open .scrim{opacity:1;pointer-events:auto}
+#shell.open .drawer{transform:none;visibility:visible;transition:transform .3s}
+@media(prefers-reduced-motion:reduce){.drawer,.scrim{transition:none!important}}
+.dh{display:flex;justify-content:space-between;align-items:center;color:var(--mute)}
+.dn{display:flex;flex-direction:column;margin:24px 0}
+.dn button{display:flex;align-items:baseline;gap:16px;background:none;border:0;border-bottom:1px solid var(--line);color:inherit;text-align:left;cursor:pointer;padding:16px 0;font:300 clamp(34px,9vw,44px)/1.1 Fraunces,Georgia,serif;letter-spacing:-.02em}
+.dn button:hover,.dn button[aria-current=page]{color:var(--rose)}
+.dn small{font:12px 'DM Mono',monospace;color:var(--rose);letter-spacing:.08em}
+.dfoot{margin-top:auto;padding-top:24px}.dfoot a{text-decoration:none}
+.ord{display:grid;gap:32px;margin:104px 0 0;scroll-margin-top:72px}
+@media(min-width:900px){.ord{grid-template-columns:1fr 1.2fr;gap:64px}}
+.ord h2{margin:0 0 12px;font:300 clamp(40px,8vw,96px)/1 Fraunces,Georgia,serif;letter-spacing:-.035em}
+.ord p{margin:0;color:var(--mute);max-width:36ch}
+.f,.f2{display:grid;gap:22px}
+@media(min-width:560px){.f2{grid-template-columns:1fr 1fr}}
+.fld label{display:block;font:12px 'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.fld input,.fld select,.fld textarea{width:100%;font:400 18px Figtree,sans-serif;padding:10px 0;border:0;border-bottom:1px solid var(--ink);border-radius:0;background:transparent;color:var(--ink)}
+.fld select option{color:#1c1418}
+.fld textarea{min-height:96px;resize:vertical}
+.wa{font:400 13px 'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase;background:var(--ink);color:var(--bg);border:0;padding:18px 24px;cursor:pointer;width:100%}
+@media(min-width:560px){.wa{width:auto;justify-self:start}}
+.wa:hover{background:var(--rose);color:#fff}
+#wmsg{font-size:14px;color:var(--rose);min-height:20px}
+:focus-visible{outline:2px solid var(--rose);outline-offset:2px}
+@media(prefers-reduced-motion:no-preference){.track{scroll-behavior:smooth}}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const lines=t=>String(t||'').split('\n').map(x=>x.trim()).filter(Boolean);
+const p2=x=>String(x).padStart(2,'0');
+const cols=['#e8c3cb','#cfdcbf','#f0dcc4'];
+const cake=c=>`<svg viewBox="0 0 120 100" aria-hidden="true"><ellipse cx="60" cy="88" rx="50" ry="8" fill="#0001"/><rect x="18" y="48" width="84" height="36" rx="6" fill="${c}"/><rect x="18" y="48" width="84" height="12" rx="6" fill="#fff8"/><rect x="28" y="30" width="64" height="20" rx="5" fill="${c}"/><circle cx="60" cy="22" r="7" fill="#b8566b"/><path d="M60 15q4-8 9-8" stroke="#6b8a5e" stroke-width="3" fill="none" stroke-linecap="round"/></svg>`;
+// Netlify Image CDN: ritaglia al centro in quadrato e riduce il peso (se non disponibile, usa la foto originale)
+const opt=u=>'/.netlify/images?url='+encodeURIComponent(u)+'&w=900&h=900&fit=cover&q=80';
+let state={instagram:'',whatsapp:'',photos:[],recipes:[]},view='home';
+
+function slides(){
+  const cap=(i,t)=>`<figcaption><b>${p2(i+1)}</b>${esc(t)}</figcaption>`;
+  const ph=(state.photos||[]).filter(p=>p&&p.image);
+  if(!ph.length)return cols.map((c,i)=>`<figure class="slide"><div class="im" style="background:${c}">${cake(['#fff','#f6d9df','#fbf3e6'][i])}</div>${cap(i,'Qui la prossima torta')}</figure>`).join('');
+  return ph.map((p,i)=>`<figure class="slide"><div class="im"><img src="${esc(opt(p.image))}" data-o="${esc(p.image)}" alt="${esc(p.caption||'Torta di Tortine by Mar')}" ${i?'loading="lazy"':''}></div>${cap(i,p.caption)}</figure>`).join('');
+}
+function render(){
+  const n=(state.photos||[]).filter(p=>p&&p.image).length||3,h=esc(state.instagram),ig='https://instagram.com/'+h;
+  const d=new Date().toLocaleDateString('it-IT',{month:'long',year:'numeric'}),today=new Date().toISOString().slice(0,10);
+  const recs=(state.recipes||[]).length?state.recipes.map(r=>`<details class="rec"><summary>${esc(r.title)}</summary><div class="b"><div><h4>Ingredienti</h4><ul>${lines(r.ingredients).map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div><div><h4>Procedimento</h4><ol>${lines(r.steps).map(x=>`<li>${esc(x)}</li>`).join('')}</ol></div></div></details>`).join(''):'<p style="color:var(--mute)">Presto le prime ricette.</p>';
+  const home=`<h1 class="mast">TORTINE<em>by Mar</em></h1>
+  <section aria-label="Le mie torte"><div class="track" id="track" tabindex="0">${slides()}</div>
+  <div class="ctl"><span id="cnt">01 / ${p2(n)}</span><span><button class="arr" id="prev" aria-label="Foto precedente">←</button><button class="arr" id="next" aria-label="Foto successiva">→</button></span></div></section>
+  <div class="ed"><span class="lab">Editoriale</span><p>Torte fatte a mano, <em>una alla volta</em>. Su ordinazione, con ingredienti semplici e tanta pazienza.</p></div>
+  <section class="ord" id="ordina"><div><h2>Ordina</h2><p>Raccontami la torta che hai in mente: ti rispondo su WhatsApp.</p></div>
+  <form class="f" id="wf">
+  <div class="fld"><label for="n">Il tuo nome</label><input id="n" name="nome" required autocomplete="given-name"></div>
+  <div class="f2"><div class="fld"><label for="o">Occasione</label><select id="o" name="occ"><option>Compleanno</option><option>Matrimonio</option><option>Battesimo / Comunione</option><option>Anniversario</option><option>Altro</option></select></div>
+  <div class="fld"><label for="p">Persone</label><input id="p" name="pers" type="number" min="1" inputmode="numeric" placeholder="es. 10"></div></div>
+  <div class="fld"><label for="dt">Data desiderata</label><input id="dt" name="data" type="date" min="${today}"></div>
+  <div class="fld"><label for="de">Idee e dettagli</label><textarea id="de" name="det" placeholder="Gusto, decorazioni, allergie…"></textarea></div>
+  <button class="wa" type="submit">Scrivimi su WhatsApp →</button><div id="wmsg" role="status"></div></form></section>
+  <a class="cta" href="${ig}" target="_blank" rel="noopener">Seguimi su <span>Instagram</span> →</a>`;
+  const rec=`<h2 class="sec">Ricette</h2><div class="recs">${recs}</div>`;
+  $('#app').innerHTML=`<div id="shell"><div class="scrim" data-drawer></div>
+  <nav class="drawer" id="drawer" aria-label="Menu principale"><div class="dh mono"><span>Menu</span><button class="burger" data-drawer aria-label="Chiudi menu">✕</button></div>
+  <div class="dn"><button data-nav="home" ${view==='home'?'aria-current="page"':''}><small>01</small>Le torte</button><button data-nav="ricette" ${view==='ricette'?'aria-current="page"':''}><small>02</small>Ricette</button><button data-nav="ordina"><small>03</small>Ordina</button></div>
+  <div class="dfoot mono"><a href="${ig}" target="_blank" rel="noopener">Instagram @${h} ↗</a></div></nav>
+  <div class="top mono"><button class="burger" id="burger" data-drawer aria-expanded="false" aria-controls="drawer"><i></i>Menu</button><span class="hs">N°01 · ${d}</span><a href="${ig}" target="_blank" rel="noopener">@${h} ↗</a></div>
+  ${view==='home'?home:rec}
+  <footer><span>© Tortine by Mar</span><span>N°01</span></footer></div>`;
+  document.querySelectorAll('img[data-o]').forEach(i=>i.addEventListener('error',()=>{if(i.src.indexOf('/.netlify/')>-1)i.src=i.dataset.o},{once:true}));
+  if(view==='home')bindCarousel();
+}
+function bindCarousel(){
+  const t=$('#track'),sl=[...t.querySelectorAll('.slide')],c=$('#cnt');
+  const cur=()=>{let b=0,m=1e9;sl.forEach((e,i)=>{const x=Math.abs(e.offsetLeft-t.scrollLeft-20);if(x<m){m=x;b=i}});return b};
+  const go=i=>t.scrollTo({left:sl[i].offsetLeft-20});
+  $('#prev').onclick=()=>go(Math.max(0,cur()-1));$('#next').onclick=()=>go(Math.min(sl.length-1,cur()+1));
+  t.onscroll=()=>{c.textContent=p2(cur()+1)+' / '+p2(sl.length)};
+  t.onkeydown=e=>{if(e.key==='ArrowRight')$('#next').click();if(e.key==='ArrowLeft')$('#prev').click()};
+}
+document.addEventListener('click',e=>{
+  const sh=$('#shell');
+  if(e.target.closest('[data-drawer]')&&sh){const o=sh.classList.toggle('open');$('#burger').setAttribute('aria-expanded',o);return}
+  const nv=e.target.closest('[data-nav]');
+  if(nv){const t=nv.dataset.nav;view=t==='ricette'?'ricette':'home';render();const a=t==='ordina'?document.getElementById('ordina'):null;a?a.scrollIntoView():window.scrollTo(0,0)}
+});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){const sh=$('#shell');if(sh)sh.classList.remove('open')}});
+document.addEventListener('submit',e=>{
+  if(e.target.id!=='wf')return;e.preventDefault();
+  const f=new FormData(e.target),g=k=>String(f.get(k)||'').trim(),m=$('#wmsg'),ph=String(state.whatsapp||'').replace(/\D/g,'');
+  if(!ph){m.textContent='Il numero WhatsApp non è ancora impostato.';return}
+  const dt=g('data')?g('data').split('-').reverse().join('/'):'';
+  const t=['Ciao Marta! Sono '+g('nome')+', vorrei ordinare una torta.','Occasione: '+g('occ'),g('pers')&&'Persone: '+g('pers'),dt&&'Data desiderata: '+dt,g('det')&&'Idee e dettagli: '+g('det')].filter(Boolean).join('\n');
+  const a=document.createElement('a');a.href='https://wa.me/'+ph+'?text='+encodeURIComponent(t);a.target='_blank';a.rel='noopener';a.click();
+  m.textContent='Si apre WhatsApp con il messaggio pronto: premi invia.';
+});
+render();
+fetch('/content/site.json',{cache:'no-cache'}).then(r=>r.json()).then(d=>{state=Object.assign(state,d);render()}).catch(()=>{});
+</script>
+</body>
+</html>

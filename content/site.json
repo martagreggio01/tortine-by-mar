@@ -3,7 +3,16 @@
   "whatsapp": "3393489460",
   "photos": [
     {
-      "image": "/uploads/torta1.jpeg"
+      "image": "/uploads/torta1.jpeg",
+      "caption": "Crostata di frutta"
+    },
+    {
+      "image": "/uploads/whatsapp-image-2026-10-05-at-15.24.08-2-.jpeg",
+      "caption": "Cream tart"
+    },
+    {
+      "image": "/uploads/whatsapp-image-2026-10-05-at-15.24.08.jpeg",
+      "caption": "Crostatine di frutta"
     }
   ],
   "recipes": [

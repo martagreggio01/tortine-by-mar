@@ -22,7 +22,13 @@
       "steps": "PER LA GANACHE AL CIOCCOLATO\nScaldate la panna al microonde o in un pentolino. Quando sarà ben calda, versatela sopra il cioccolato fondente precedentemente sminuzzato.\n\nCREMA AL CIOCCOLATO BIANCO\nUnite l'uovo, lo zucchero, l'amido e la vaniglia e mescolate vigorosamente con una frusta.\nAggiungete il latte e mettete sul fuoco.\nQuando la crema comincia a sobbollire, aggiungete anche il cioccolato bianco precedentemente sminuzzato.\nIl calore della crema scioglierà il cioccolato.\nTenete sul fuoco finchè torna a bollore.\nSpegnete e fate raffreddare.\n\nCOMPOSIZIONE\nVersate la ganache ancora calda nel guscio di frolla già cotto e raffreddato.\nIncastonate i lamponi freschi sulla ganache fondente, avendo cura di tenerne alcuni da parte per la decorazione.\nQuando la crema al cioccolato bianco sarà raffreddata, riprendetela un po' con le fruste, ponete in sac a poche e decorate a piacere.",
       "sections": [
         {
-          "title": ""
+          "title": "Pasta frolla",
+          "use_recipe": "Pasta frolla"
+        },
+        {
+          "title": "Ganache al cioccolato fondente",
+          "ingredients": "150 gr di cioccolato fondente\n130 ml di panna vegetale",
+          "steps": "Scaldate la panna in microonde o in un pentolino.\nQuando sarà abbastanza calda, versatela nel cioccolato precedentemente sminuzzato."
         }
       ]
     },

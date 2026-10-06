@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: martagreggio01/tortine-by-mar   #
+  repo: martagreggio01/tortine-by-mar
   branch: main
   auth_scope: repo
 
@@ -45,9 +45,37 @@ collections:
               - label: Titolo
                 name: title
                 widget: string
-              - label: "Ingredienti (uno per riga)"
-                name: ingredients
-                widget: text
-              - label: "Procedimento (un passaggio per riga)"
-                name: steps
-                widget: text
+              - label: "Foto della ricetta"
+                name: photos
+                widget: list
+                required: false
+                field:
+                  label: Foto
+                  name: image
+                  widget: image
+              - label: "Preparazioni (es. Frolla, Crema, Assemblaggio)"
+                name: sections
+                widget: list
+                required: false
+                summary: "{{fields.title}}"
+                fields:
+                  - label: "Nome della preparazione"
+                    name: title
+                    widget: string
+                  - label: "Usa un'altra ricetta (facoltativo)"
+                    name: use_recipe
+                    widget: relation
+                    required: false
+                    collection: sito
+                    file: site
+                    search_fields: ["recipes.*.title"]
+                    display_fields: ["recipes.*.title"]
+                    value_field: "recipes.*.title"
+                  - label: "Ingredienti (uno per riga)"
+                    name: ingredients
+                    widget: text
+                    required: false
+                  - label: "Procedimento (un passaggio per riga)"
+                    name: steps
+                    widget: text
+                    required: false

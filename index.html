@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Tortine by Mar</title>
-<meta name="description" content="Torte fatte a mano, su ordinazione. Tortine by Mar.">
+<meta name="description" content="Torte fatte a mano. Tortine by Mar.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🍰%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;1,9..144,300&family=DM+Mono&family=Figtree:wght@400;600&display=swap" rel="stylesheet">
@@ -41,14 +41,22 @@ figcaption b{color:var(--rose);font-weight:400}
 .ed em{color:var(--rose)}
 .sec{margin:104px 0 8px;font:300 clamp(40px,8vw,96px)/1 Fraunces,Georgia,serif;letter-spacing:-.035em;padding-bottom:12px;border-bottom:1px solid var(--ink)}
 .recs{counter-reset:r}
-.rec{counter-increment:r;border-bottom:1px solid var(--line)}
+.rec{counter-increment:r;counter-reset:s;border-bottom:1px solid var(--line)}
 .rec summary{display:grid;grid-template-columns:64px 1fr 20px;align-items:baseline;padding:22px 0;cursor:pointer;list-style:none;font:300 clamp(24px,4vw,44px)/1.1 Fraunces,Georgia,serif;letter-spacing:-.02em}
 .rec summary::-webkit-details-marker{display:none}
 .rec summary::before{content:'N°' counter(r,decimal-leading-zero);font:12px 'DM Mono',monospace;letter-spacing:.08em;color:var(--rose)}
 .rec summary::after{content:'+';font:18px 'DM Mono',monospace;color:var(--rose)}
 .rec[open] summary::after{content:'–'}
-.rec .b{display:grid;gap:22px;padding:0 0 28px}
-@media(min-width:700px){.rec .b{grid-template-columns:1fr 2fr;padding-left:64px}}
+.rec .b{padding:0 0 28px}
+@media(min-width:700px){.rec .b{padding-left:64px}}
+.rp{display:flex;gap:12px;overflow-x:auto;margin:0 0 8px;scrollbar-width:thin}
+.rp img{height:clamp(180px,32vw,280px);width:auto;display:block;flex:none}
+.ps{counter-increment:s;margin-top:28px;border-top:1px solid var(--line);padding-top:16px}
+.ps h3{margin:0 0 14px;display:flex;gap:12px;align-items:baseline;font:300 clamp(22px,3.2vw,32px)/1.1 Fraunces,Georgia,serif;letter-spacing:-.01em}
+.ps h3::before{content:counter(s,decimal-leading-zero);font:12px 'DM Mono',monospace;letter-spacing:.08em;color:var(--rose)}
+.lk{margin:0 0 14px}.lk a{color:var(--rose)}
+.pc{display:grid;gap:22px}
+@media(min-width:700px){.pc{grid-template-columns:1fr 2fr}}
 .rec h4{margin:0 0 8px;font:400 12px 'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
 .rec ul{list-style:none;padding:0;margin:0}
 .rec ul li{border-bottom:1px solid var(--line);padding:6px 0}
@@ -75,7 +83,8 @@ footer{display:flex;justify-content:space-between;color:var(--mute);margin:48px 
 .dfoot{margin-top:auto;padding-top:24px}.dfoot a{text-decoration:none}
 .ord{display:grid;gap:32px;margin:104px 0 0;scroll-margin-top:72px}
 @media(min-width:900px){.ord{grid-template-columns:1fr 1.2fr;gap:64px}}
-.ord h2{margin:0 0 12px;font:300 clamp(40px,8vw,96px)/1 Fraunces,Georgia,serif;letter-spacing:-.035em}
+.ord h2 em{color:var(--rose)}
+.ord h2{margin:0 0 12px;font:300 clamp(34px,6vw,72px)/1 Fraunces,Georgia,serif;letter-spacing:-.035em}
 .ord p{margin:0;color:var(--mute);max-width:36ch}
 .f,.f2{display:grid;gap:22px}
 @media(min-width:560px){.f2{grid-template-columns:1fr 1fr}}
@@ -110,27 +119,35 @@ function slides(){
   if(!ph.length)return cols.map((c,i)=>`<figure class="slide"><div class="im" style="background:${c}">${cake(['#fff','#f6d9df','#fbf3e6'][i])}</div>${cap(i,'Qui la prossima torta')}</figure>`).join('');
   return ph.map((p,i)=>`<figure class="slide"><div class="im"><img src="${esc(opt(p.image))}" data-o="${esc(p.image)}" alt="${esc(p.caption||'Torta di Tortine by Mar')}" ${i?'loading="lazy"':''}></div>${cap(i,p.caption)}</figure>`).join('');
 }
+const secs=r=>Array.isArray(r.sections)&&r.sections.length?r.sections:((r.ingredients||r.steps)?[{title:'',ingredients:r.ingredients,steps:r.steps}]:[]);
+const rimg=u=>'/.netlify/images?url='+encodeURIComponent(u)+'&w=800&q=80';
+function recipe(r,i){
+  const ph=(r.photos||[]).filter(Boolean).map(u=>`<img src="${esc(rimg(u))}" data-o="${esc(u)}" alt="${esc(r.title)}" loading="lazy">`).join('');
+  const ss=secs(r).map(x=>{
+    const j=x.use_recipe?(state.recipes||[]).findIndex(y=>y.title===x.use_recipe):-1;
+    const lk=x.use_recipe?`<p class="lk">Ricetta completa: ${j>=0?`<a href="#r-${j}" data-rec="${j}">${esc(x.use_recipe)} →</a>`:esc(x.use_recipe)}</p>`:'';
+    const cols=(lines(x.ingredients).length||lines(x.steps).length)?`<div class="pc"><div><h4>Ingredienti</h4><ul>${lines(x.ingredients).map(t=>`<li>${esc(t)}</li>`).join('')}</ul></div><div><h4>Procedimento</h4><ol>${lines(x.steps).map(t=>`<li>${esc(t)}</li>`).join('')}</ol></div></div>`:'';
+    return `<section class="ps">${x.title?`<h3>${esc(x.title)}</h3>`:''}${lk}${cols}</section>`}).join('');
+  return `<details class="rec" id="r-${i}"><summary>${esc(r.title)}</summary><div class="b">${ph?`<div class="rp">${ph}</div>`:''}${ss}</div></details>`;
+}
 function render(){
   const n=(state.photos||[]).filter(p=>p&&p.image).length||3,h=esc(state.instagram),ig='https://instagram.com/'+h;
   const d=new Date().toLocaleDateString('it-IT',{month:'long',year:'numeric'}),today=new Date().toISOString().slice(0,10);
-  const recs=(state.recipes||[]).length?state.recipes.map(r=>`<details class="rec"><summary>${esc(r.title)}</summary><div class="b"><div><h4>Ingredienti</h4><ul>${lines(r.ingredients).map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div><div><h4>Procedimento</h4><ol>${lines(r.steps).map(x=>`<li>${esc(x)}</li>`).join('')}</ol></div></div></details>`).join(''):'<p style="color:var(--mute)">Presto le prime ricette.</p>';
+  const recs=(state.recipes||[]).length?state.recipes.map(recipe).join(''):'<p style="color:var(--mute)">Presto le prime ricette.</p>';
   const home=`<h1 class="mast">TORTINE<em>by Mar</em></h1>
   <section aria-label="Le mie torte"><div class="track" id="track" tabindex="0">${slides()}</div>
   <div class="ctl"><span id="cnt">01 / ${p2(n)}</span><span><button class="arr" id="prev" aria-label="Foto precedente">←</button><button class="arr" id="next" aria-label="Foto successiva">→</button></span></div></section>
-  <div class="ed"><span class="lab">Editoriale</span><p>Torte fatte a mano, <em>una alla volta</em>. Su ordinazione, con ingredienti semplici e tanta pazienza.</p></div>
-  <section class="ord" id="ordina"><div><h2>Ordina</h2><p>Raccontami la torta che hai in mente: ti rispondo su WhatsApp.</p></div>
+  <div class="ed"><span class="lab">Editoriale</span><p>Torte fatte a mano, <em>una alla volta</em>. Con ingredienti semplici e tanta pazienza.</p></div>
+  <section class="ord" id="contatti"><div><h2>Se sei curioso, <em>contattami</em></h2><p>Domande sulle torte o sulle ricette? Scrivimi su WhatsApp: ti rispondo appena posso.</p></div>
   <form class="f" id="wf">
   <div class="fld"><label for="n">Il tuo nome</label><input id="n" name="nome" required autocomplete="given-name"></div>
-  <div class="f2"><div class="fld"><label for="o">Occasione</label><select id="o" name="occ"><option>Compleanno</option><option>Matrimonio</option><option>Battesimo / Comunione</option><option>Anniversario</option><option>Altro</option></select></div>
-  <div class="fld"><label for="p">Persone</label><input id="p" name="pers" type="number" min="1" inputmode="numeric" placeholder="es. 10"></div></div>
-  <div class="fld"><label for="dt">Data desiderata</label><input id="dt" name="data" type="date" min="${today}"></div>
-  <div class="fld"><label for="de">Idee e dettagli</label><textarea id="de" name="det" placeholder="Gusto, decorazioni, allergie…"></textarea></div>
+  <div class="fld"><label for="de">Il tuo messaggio</label><textarea id="de" name="det" required placeholder="Scrivi qui la tua richiesta di informazioni…"></textarea></div>
   <button class="wa" type="submit">Scrivimi su WhatsApp →</button><div id="wmsg" role="status"></div></form></section>
   <a class="cta" href="${ig}" target="_blank" rel="noopener">Seguimi su <span>Instagram</span> →</a>`;
   const rec=`<h2 class="sec">Ricette</h2><div class="recs">${recs}</div>`;
   $('#app').innerHTML=`<div id="shell"><div class="scrim" data-drawer></div>
   <nav class="drawer" id="drawer" aria-label="Menu principale"><div class="dh mono"><span>Menu</span><button class="burger" data-drawer aria-label="Chiudi menu">✕</button></div>
-  <div class="dn"><button data-nav="home" ${view==='home'?'aria-current="page"':''}><small>01</small>Le torte</button><button data-nav="ricette" ${view==='ricette'?'aria-current="page"':''}><small>02</small>Ricette</button><button data-nav="ordina"><small>03</small>Ordina</button></div>
+  <div class="dn"><button data-nav="home" ${view==='home'?'aria-current="page"':''}><small>01</small>Le torte</button><button data-nav="ricette" ${view==='ricette'?'aria-current="page"':''}><small>02</small>Ricette</button><button data-nav="contatti"><small>03</small>Contatti</button></div>
   <div class="dfoot mono"><a href="${ig}" target="_blank" rel="noopener">Instagram @${h} ↗</a></div></nav>
   <div class="top mono"><button class="burger" id="burger" data-drawer aria-expanded="false" aria-controls="drawer"><i></i>Menu</button><span class="hs">N°01 · ${d}</span><a href="${ig}" target="_blank" rel="noopener">@${h} ↗</a></div>
   ${view==='home'?home:rec}
@@ -149,16 +166,17 @@ function bindCarousel(){
 document.addEventListener('click',e=>{
   const sh=$('#shell');
   if(e.target.closest('[data-drawer]')&&sh){const o=sh.classList.toggle('open');$('#burger').setAttribute('aria-expanded',o);return}
+  const rl=e.target.closest('[data-rec]');
+  if(rl){e.preventDefault();const t=document.getElementById('r-'+rl.dataset.rec);if(t){t.open=true;t.scrollIntoView({behavior:'smooth',block:'start'})}return}
   const nv=e.target.closest('[data-nav]');
-  if(nv){const t=nv.dataset.nav;view=t==='ricette'?'ricette':'home';render();const a=t==='ordina'?document.getElementById('ordina'):null;a?a.scrollIntoView():window.scrollTo(0,0)}
+  if(nv){const t=nv.dataset.nav;view=t==='ricette'?'ricette':'home';render();const a=t==='contatti'?document.getElementById('contatti'):null;a?a.scrollIntoView():window.scrollTo(0,0)}
 });
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){const sh=$('#shell');if(sh)sh.classList.remove('open')}});
 document.addEventListener('submit',e=>{
   if(e.target.id!=='wf')return;e.preventDefault();
   const f=new FormData(e.target),g=k=>String(f.get(k)||'').trim(),m=$('#wmsg'),ph=String(state.whatsapp||'').replace(/\D/g,'');
   if(!ph){m.textContent='Il numero WhatsApp non è ancora impostato.';return}
-  const dt=g('data')?g('data').split('-').reverse().join('/'):'';
-  const t=['Ciao Marta! Sono '+g('nome')+', vorrei ordinare una torta.','Occasione: '+g('occ'),g('pers')&&'Persone: '+g('pers'),dt&&'Data desiderata: '+dt,g('det')&&'Idee e dettagli: '+g('det')].filter(Boolean).join('\n');
+  const t='Ciao Marta! Sono '+g('nome')+', vorrei qualche informazione.\n'+g('det');
   const a=document.createElement('a');a.href='https://wa.me/'+ph+'?text='+encodeURIComponent(t);a.target='_blank';a.rel='noopener';a.click();
   m.textContent='Si apre WhatsApp con il messaggio pronto: premi invia.';
 });
